@@ -10,8 +10,9 @@ import android.widget.TextView;
 import com.example.mvp.R;
 import com.example.mvp.util.MyModel;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AppView {
 
+    AppPresenter appPresenter;
     Button myButton;
     TextView myTextView;
 
@@ -23,15 +24,25 @@ public class MainActivity extends AppCompatActivity {
         myTextView = findViewById(R.id.textView);
         myButton = findViewById(R.id.button);
 
+        appPresenter = new AppPresenter(this);
+
+        myButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                appPresenter.getAppName();
+            }
+        });
     }
 
-    public MyModel GetAppFromModel(){
-        return new MyModel("Master Codding App",700000,5);
-    }
 
-    @SuppressLint("SetTextI18n")
-    public void DisplayAppInText(View view) {
-        myTextView.setText(GetAppFromModel().getAppName() +"Downloads "+GetAppFromModel().getAppDownloads());
+//    @SuppressLint("SetTextI18n")
+//    public void DisplayAppInText(View view) {
+//        myTextView.setText(GetAppFromModel().getAppName() +"Downloads "+GetAppFromModel().getAppDownloads());
+//    }
+
+    @Override
+    public void onGetAppName(String string) {
+        myTextView.setText(string);
     }
 
     //MVP
