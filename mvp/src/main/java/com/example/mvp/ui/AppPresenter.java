@@ -9,6 +9,7 @@ public class AppPresenter {
     AppView appView;
 
     public AppPresenter(AppView appView) {
+        Log.d("MyTaag", "AppPresent Construct");
         this.appView = appView;
     }
 
@@ -21,5 +22,9 @@ public class AppPresenter {
         Log.d("MyTaag", "AppPresent getAppName");
         appView.onGetAppName(GetAppFromModel().getAppName());
     }
+//    public void getAppDownloads(){
+//        Log.d("MyTaag", "AppPresent getAppDownloads");
+//        appView.onGetAppName(GetAppFromModel().getAppDownloads()+"");
+//    }
 
 }

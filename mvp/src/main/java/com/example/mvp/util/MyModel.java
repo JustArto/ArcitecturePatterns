@@ -9,6 +9,7 @@ public class MyModel {
     int appRating;
 
     public MyModel(String appName, int appDownloads, int appRating) {
+        Log.d("MyTaag", "MyModel Constr");
         this.appName = appName;
         this.appDownloads = appDownloads;
         this.appRating = appRating;
