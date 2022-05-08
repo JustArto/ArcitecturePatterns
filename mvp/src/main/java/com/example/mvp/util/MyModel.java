@@ -1,5 +1,7 @@
 package com.example.mvp.util;
 
+import android.util.Log;
+
 public class MyModel {
 
     String appName;
@@ -13,6 +15,7 @@ public class MyModel {
     }
 
     public String getAppName() {
+        Log.d("MyTaag", "MyModel return getAppName ");
         return appName;
     }
 

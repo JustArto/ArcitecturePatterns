@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,9 +30,16 @@ public class MainActivity extends AppCompatActivity implements AppView {
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("MyTaag", "MainActivity buttonOnClick");
                 appPresenter.getAppName();
             }
         });
+    }
+
+    @Override
+    public void onGetAppName(String string) {
+        Log.d("MyTaag", "MainActivity onGetAppName");
+        myTextView.setText(string);
     }
 
 
@@ -40,13 +48,8 @@ public class MainActivity extends AppCompatActivity implements AppView {
 //        myTextView.setText(GetAppFromModel().getAppName() +"Downloads "+GetAppFromModel().getAppDownloads());
 //    }
 
-    @Override
-    public void onGetAppName(String string) {
-        myTextView.setText(string);
-    }
-
     //MVP
     //Model: MyModel
     //View: myTextView
-    //Controller: MainActivity
+    //Presenter: AppPresenter
 }
